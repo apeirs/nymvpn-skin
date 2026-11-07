@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noise Floor: NymVPN skin concept</title>
+<meta name="description" content="Noise Floor, a community concept skin for NymVPN by apeir (light and dark). Not affiliated with Nym Technologies.">
+<link rel="stylesheet" href="skin.css">
+</head>
+<body>
+
+<!-- Icon set: drawn for this skin, 24px grid, stroke icons. MIT. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.8"/><circle cx="12" cy="12" r="6.6"/><path stroke-width="3" stroke-linecap="butt" d="M12 2.6v3M12 18.4v3M2.6 12h3M18.4 12h3M5.4 5.4l2.1 2.1M16.5 16.5l2.1 2.1M5.4 18.6l2.1-2.1M16.5 7.5l2.1-2.1"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c.9-3.6 3.9-5.6 7.5-5.6s6.6 2 7.5 5.6"/></symbol>
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3v8"/><path d="M6.6 6.6a7.6 7.6 0 1 0 10.8 0"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.2 7.5 9.5 4.4-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.2 7.5 9.5 4.4-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.2 2.2 4.3-4.4"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2.8 5.5 13.2h6l-1 8 8-10.4h-6l1-8Z"/></symbol>
+  <symbol id="i-mix" viewBox="0 0 24 24"><path d="M3.5 7h3.2c2.2 0 3.6 1 4.8 3l1 2c1.2 2 2.6 3 4.8 3h3.2"/><path d="M3.5 17h3.2c2.2 0 3.6-1 4.8-3"/><path d="M15 9.4c.6-.4 1.3-.5 2.3-.5h3.2"/><path d="m18 5.8 2.7 3.1-2.7 3M18 12 20.7 15 18 18.1"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5S9.6 5.9 12 3.5Z"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1.5"/><path d="M3 18.5h18"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.2"/><path d="M11 17.5h2"/></symbol>
+  <symbol id="i-isp" viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M8.5 13.5a5 5 0 0 1 7 0M6 11a8.5 8.5 0 0 1 12 0"/><circle cx="12" cy="8.5" r="1"/><path d="M8 20h8"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8L12 3.6Z"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></symbol>
+  <symbol id="i-chev-d" viewBox="0 0 24 24"><path d="m6 9.5 6 6 6-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2.8 19.5h18.4L12 4Z"/><path d="M12 10v4.2M12 16.8v.2"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8v.2"/></symbol>
+  <symbol id="i-dns" viewBox="0 0 24 24"><rect x="4" y="4.5" width="16" height="6" rx="1.5"/><rect x="4" y="13.5" width="16" height="6" rx="1.5"/><path d="M7.5 7.5h.01M7.5 16.5h.01M11 7.5h5M11 16.5h5"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M6.5 3.5h7l4 4v13h-11v-17Z"/><path d="M13.5 3.5v4h4M9 12.5h6M9 16h6"/></symbol>
+  <symbol id="i-dice" viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="15" height="15" rx="3"/><path d="M9 9h.01M15 9h.01M12 12h.01M9 15h.01M15 15h.01"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4.2 16.5a8.5 8.5 0 1 1 15.6 0"/><path d="m12 13.5 4-4.5"/><circle cx="12" cy="14" r="1.2"/></symbol>
+  <symbol id="i-split" viewBox="0 0 24 24"><path d="M12 21v-7l-6-6M12 14l6-6"/><path d="M6 12.5V8h4.5M18 12.5V8h-4.5"/></symbol>
+  <symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-lan" viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="5" rx="1"/><rect x="3.5" y="15.5" width="6" height="5" rx="1"/><rect x="14.5" y="15.5" width="6" height="5" rx="1"/><path d="M12 8.5V12M6.5 15.5V12h11v3.5"/></symbol>
+  <symbol id="i-mask" viewBox="0 0 24 24"><path d="M3.5 8c2.5-1.5 5.5-2 8.5-2s6 .5 8.5 2c0 5-2.2 8.5-5 8.5-1.7 0-2.4-1.6-3.5-1.6s-1.8 1.6-3.5 1.6c-2.8 0-5-3.5-5-8.5Z"/><path d="M8 10.5h2M14 10.5h2"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+  <symbol id="i-boot" viewBox="0 0 24 24"><path d="M12 3.5v6"/><path d="M7 6.3a7.5 7.5 0 1 0 10 0"/><path d="M12 13.5v.01"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5M16 7l2.5 2.5M14 9l2 2"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3.5h12v17l-3-1.8-3 1.8-3-1.8-3 1.8v-17Z"/><path d="M9 8.5h6M9 12h6"/></symbol>
+  <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 12s3.3-6 9-6c1.6 0 3 .5 4.2 1.1M21 12s-3.3 6-9 6c-1.6 0-3-.5-4.2-1.1"/><path d="M4 20 20 4"/><path d="M9.8 14.2a3 3 0 0 1 4.4-4.4"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 7h15M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <!-- status bar glyphs (filled) -->
+  <symbol id="g-signal" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></symbol>
+  <symbol id="g-batt" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity=".45"/><rect x="2.5" y="2.5" width="16" height="7" rx="1.5"/><rect x="23.5" y="4" width="2" height="4" rx="1" opacity=".45"/></symbol>
+</svg>
+
+<header class="board-head">
+  <div>
+    <h1>Noise <em>Floor</em></h1>
+    <p>A community concept skin for NymVPN, light and dark. The idea: make the invisible part of Nym (hops, mixing, cover traffic) visible, so you can see <b>what you are protected from</b>, not only that a tunnel is up.</p>
+  </div>
+  <div class="disclaimer">Community concept by apeir<br>Not affiliated with or endorsed by Nym Technologies<br>Sample data · Design CC BY 4.0 · Code MIT</div>
+</header>
+<svg class="noise-rule" data-noise="board" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"></svg>
+
+<main id="rows"></main>
+
+<template id="tpl">
+
+<!-- 1 ─ DISCONNECTED ─────────────────────────────────────────────────── -->
+<figure class="shot" data-id="01-disconnected" style="margin:0">
+<div class="screen">
+  <div class="appbar">
+    <div class="wordmark">Nym<span>VPN</span></div>
+    <div class="iconbtn" aria-label="Account"><svg><use href="#i-user"/></svg></div>
+    <div class="iconbtn" aria-label="Settings"><svg><use href="#i-gear"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="seg" role="tablist" aria-label="Mode">
+      <div><svg class="ico"><use href="#i-bolt"/></svg>dVPN</div>
+      <div class="on"><svg class="ico"><use href="#i-mix"/></svg>Mixnet</div>
+    </div>
+    <div class="status">
+      <div class="badge warn"><svg class="ico"><use href="#i-alert"/></svg>Not protected</div>
+      <div class="headline">You're visible.</div>
+      <div class="sub"><b>203.0.113.54</b> · Copenhagen, DK</div>
+    </div>
+    <div class="route">
+      <div class="route-line">
+        <div class="node"><svg class="ico"><use href="#i-laptop"/></svg></div>
+        <div class="link" data-link="warn"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="node warn"><svg class="ico"><use href="#i-isp"/></svg></div>
+        <div class="link" data-link="warn"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="node"><svg class="ico"><use href="#i-globe"/></svg></div>
+      </div>
+      <div class="route-caps c3">
+        <div><b>You</b>direct, no tunnel</div>
+        <div><b>Your ISP</b>sees every site</div>
+        <div><b>Sites</b>see your IP + city</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="label">Traffic pattern</span><span class="meta warn"><b>no cover</b></span></div>
+      <div class="tape-row"><span class="k">observer</span><div class="tape" data-tape="bursty"></div></div>
+      <div class="note">Without cover traffic, anyone on your network can see <b>when</b> you are active and roughly <b>what</b> you are doing.</div>
+    </div>
+    <div class="group">
+      <div class="item loc">
+        <span class="cc">CH</span>
+        <div class="txt"><div class="hop">Entry</div><div class="t">Switzerland <small>· Auto</small></div></div>
+        <svg class="ico chev"><use href="#i-chev-r"/></svg>
+      </div>
+      <div class="item loc">
+        <span class="cc">IS</span>
+        <div class="txt"><div class="hop">Exit</div><div class="t">Iceland <small>· Reykjavík</small></div></div>
+        <svg class="ico chev"><use href="#i-chev-r"/></svg>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="facts"><span><svg class="ico"><use href="#i-mix"/></svg>Mixnet = most private · dVPN = fastest</span></div>
+    <div class="btn primary"><svg class="ico"><use href="#i-power"/></svg>Connect</div>
+  </div>
+</div>
+<figcaption class="cap">01 · Disconnected</figcaption>
+</figure>
+
+<!-- 2 ─ CONNECTING ───────────────────────────────────────────────────── -->
+<figure class="shot" data-id="02-connecting" style="margin:0">
+<div class="screen">
+  <div class="appbar">
+    <div class="wordmark">Nym<span>VPN</span></div>
+    <div class="iconbtn"><svg><use href="#i-user"/></svg></div>
+    <div class="iconbtn"><svg><use href="#i-gear"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="seg">
+      <div><svg class="ico"><use href="#i-bolt"/></svg>dVPN</div>
+      <div class="on"><svg class="ico"><use href="#i-mix"/></svg>Mixnet</div>
+    </div>
+    <div class="status">
+      <div class="badge info"><span class="pulse"></span>Connecting · step 3 of 5</div>
+      <div class="headline">Building your route…</div>
+      <div class="sub">Mixnet · 5 hops · usually 5–15 s</div>
+    </div>
+    <div class="route">
+      <div class="route-line">
+        <div class="node"><svg class="ico"><use href="#i-laptop"/></svg></div>
+        <div class="link" data-link="on"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="node gw"><span class="cc">CH</span></div>
+        <div class="link" data-link="dim"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="mixes dim"><i class="mix"></i><i class="mix"></i><i class="mix"></i></div>
+        <div class="link" data-link="dim"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="node dim"><span class="cc">IS</span></div>
+        <div class="link" data-link="dim"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="node dim"><svg class="ico"><use href="#i-globe"/></svg></div>
+      </div>
+    </div>
+    <div class="progress" role="progressbar" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100"><i></i></div>
+    <div class="steps">
+      <div class="step done"><span class="dot"><svg class="ico"><use href="#i-check"/></svg></span><div><div class="s-t">Network directory fetched</div><div class="s-m">146 gateways · 0.4 s</div></div></div>
+      <div class="step done"><span class="dot"><svg class="ico"><use href="#i-check"/></svg></span><div><div class="s-t">zk-nym credential ready</div><div class="s-d">Proves you paid without saying who you are.</div></div></div>
+      <div class="step now"><span class="dot"></span><div><div class="s-t">Handshake with entry gateway</div><div class="s-m">Zürich, CH · AmneziaWG</div></div></div>
+      <div class="step todo"><span class="dot"></span><div><div class="s-t">Route through 3 mix nodes</div></div></div>
+      <div class="step todo"><span class="dot"></span><div><div class="s-t">Exit gateway</div><div class="s-m">Reykjavík, IS</div></div></div>
+    </div>
+    <div class="tip"><svg class="ico"><use href="#i-lock"/></svg><div>Kill switch is holding all traffic until the route is up. Nothing leaks while you wait.</div></div>
+    <div class="spacer"></div>
+    <div class="btn ghost"><svg class="ico"><use href="#i-x"/></svg>Cancel</div>
+  </div>
+</div>
+<figcaption class="cap">02 · Connecting, step by step</figcaption>
+</figure>
+
+<!-- 3 ─ CONNECTED (MIXNET) ───────────────────────────────────────────── -->
+<figure class="shot" data-id="03-connected" style="margin:0">
+<div class="screen">
+  <div class="appbar">
+    <div class="wordmark">Nym<span>VPN</span></div>
+    <div class="iconbtn"><svg><use href="#i-user"/></svg></div>
+    <div class="iconbtn"><svg><use href="#i-gear"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="seg">
+      <div><svg class="ico"><use href="#i-bolt"/></svg>dVPN</div>
+      <div class="on"><svg class="ico"><use href="#i-mix"/></svg>Mixnet</div>
+    </div>
+    <div class="status">
+      <div class="badge ok"><span class="pulse"></span>Protected · Mixnet</div>
+      <div class="headline">You blend in.</div>
+      <div class="sub">5 hops · <b>00:42:17</b> · sites see <b>Reykjavík, IS</b></div>
+    </div>
+    <div class="route">
+      <div class="route-line">
+        <div class="node"><svg class="ico"><use href="#i-laptop"/></svg></div>
+        <div class="link" data-link="on"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="node gw"><span class="cc">CH</span></div>
+        <div class="link" data-link="on"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="mixes"><i class="mix"></i><i class="mix"></i><i class="mix"></i></div>
+        <div class="link" data-link="on"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="node gw"><span class="cc">IS</span></div>
+        <div class="link" data-link="on"><svg viewBox="0 0 100 10" preserveAspectRatio="none"></svg></div>
+        <div class="node"><svg class="ico"><use href="#i-globe"/></svg></div>
+      </div>
+      <div class="route-caps c3">
+        <div><b>Entry · CH</b>knows your IP, not where you go</div>
+        <div><b>3 mix nodes</b>delay + shuffle, know nothing</div>
+        <div><b>Exit · IS</b>knows the site, not who you are</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="label">Cover traffic</span><span class="meta"><b>on</b> · Balanced 5×</span></div>
+      <div class="tape-row"><span class="k">you send</span><div class="tape" data-tape="you" data-ratio="5" data-seed="7"></div></div>
+      <div class="tape-row"><span class="k">observer</span><div class="tape" data-tape="observer"></div></div>
+      <div class="legend"><span><i></i>your data</span><span><i class="c"></i>cover</span><span class="mono" style="margin-left:auto">48 pkt/s · 83% cover</span></div>
+    </div>
+    <div class="group">
+      <div class="item loc">
+        <span class="cc">CH</span>
+        <div class="txt"><div class="hop">Entry</div><div class="t">Switzerland <small>· Zürich</small></div></div>
+        <svg class="ico chev"><use href="#i-chev-r"/></svg>
+      </div>
+      <div class="item loc">
+        <span class="cc">IS</span>
+        <div class="txt"><div class="hop">Exit</div><div class="t">Iceland <small>· Reykjavík</small></div></div>
+        <svg class="ico chev"><use href="#i-chev-r"/></svg>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="facts"><span><svg class="ico"><use href="#i-lock"/></svg>kill switch on</span><span><svg class="ico"><use href="#i-receipt"/></svg>paid with zk-nym, unlinkable</span></div>
+    <div class="btn ghost"><svg class="ico"><use href="#i-power"/></svg>Disconnect</div>
+  </div>
+</div>
+<figcaption class="cap">03 · Connected: route + cover traffic</figcaption>
+</figure>
+
+<!-- 4 ─ MODE CHOOSER ─────────────────────────────────────────────────── -->
+<figure class="shot" data-id="04-mode" style="margin:0">
+<div class="screen">
+  <div class="appbar">
+    <div class="iconbtn back"><svg><use href="#i-chev-l"/></svg></div>
+    <div class="title">Mode</div>
+  </div>
+  <div class="body">
+    <div style="font-size:22px;font-weight:800;line-height:1.15;margin-top:-2px">What do you need to hide?</div>
+    <div class="mode">
+      <div class="mode-top"><svg class="ico"><use href="#i-bolt"/></svg><div class="name">dVPN</div><span class="hops">2 hops · AmneziaWG</span><span class="radio"></span></div>
+      <p>Hides <b>your IP and location</b> from sites, and your browsing from your ISP. Fast enough for video and big downloads.</p>
+      <div class="good">good for → browsing · streaming · downloads</div>
+    </div>
+    <div class="mode on">
+      <div class="mode-top"><svg class="ico"><use href="#i-mix"/></svg><div class="name">Mixnet</div><span class="hops">5 hops · noise</span><span class="radio on"></span></div>
+      <p>Also hides <b>who talks to whom, and when</b>, even from someone watching the whole network. Costs some speed.</p>
+      <div class="good">good for → messaging · payments · wallets</div>
+    </div>
+    <table class="cmp">
+      <thead><tr><th>Protects against</th><th class="nm">dVPN</th><th class="nm">Mixnet</th></tr></thead>
+      <tbody>
+        <tr><td>Sites seeing your IP</td><td class="yes"><svg class="ico"><use href="#i-check"/></svg></td><td class="yes"><svg class="ico"><use href="#i-check"/></svg></td></tr>
+        <tr><td>One server knowing it all</td><td class="yes"><svg class="ico"><use href="#i-check"/></svg></td><td class="yes"><svg class="ico"><use href="#i-check"/></svg></td></tr>
+        <tr><td>Packet size fingerprints</td><td class="no">–</td><td class="yes"><svg class="ico"><use href="#i-check"/></svg></td></tr>
+        <tr><td>Timing analysis</td><td class="no">–</td><td class="yes"><svg class="ico"><use href="#i-check"/></svg></td></tr>
+        <tr><td>Activity patterns (cover)</td><td class="no">–</td><td class="yes"><svg class="ico"><use href="#i-check"/></svg></td></tr>
+        <tr><td>Speed</td><td class="mono" style="font-size:11.5px">fast</td><td class="mono" style="font-size:11.5px">slower</td></tr>
+      </tbody>
+    </table>
+    <div class="spacer"></div>
+    <div class="btn primary">Use Mixnet</div>
+  </div>
+</div>
+<figcaption class="cap">04 · Mode: chosen by threat, not speed</figcaption>
+</figure>
+
+<!-- 5 ─ SERVER SELECTION (EXIT) ──────────────────────────────────────── -->
+<figure class="shot" data-id="05-servers" style="margin:0">
+<div class="screen">
+  <div class="appbar">
+    <div class="iconbtn back"><svg><use href="#i-chev-l"/></svg></div>
+    <div class="title">Choose location</div>
+    <div class="iconbtn"><svg><use href="#i-info"/></svg></div>
+  </div>
+  <div class="body" style="gap:10px">
+    <div class="seg small">
+      <div><span class="mono" style="font-size:11px">1</span>&nbsp;Entry · CH</div>
+      <div class="on"><span class="mono" style="font-size:11px">2</span>&nbsp;Exit · IS</div>
+    </div>
+    <div class="search"><svg class="ico"><use href="#i-search"/></svg><span class="ph">Search location</span><span class="count">58 countries</span></div>
+    <div class="chips">
+      <div class="chip"><svg class="ico"><use href="#i-target"/></svg>Auto</div>
+      <div class="chip"><svg class="ico"><use href="#i-gauge"/></svg>Fastest</div>
+      <div class="chip"><svg class="ico"><use href="#i-dice"/></svg>Random</div>
+    </div>
+    <div class="tabs"><div>Favorites</div><div>Recent</div><div class="on">All servers</div></div>
+    <div class="group" style="border-radius:14px">
+      <div class="item">
+        <span class="cc">IS</span>
+        <div class="txt"><div class="t">Iceland</div><div class="d">4 servers</div></div>
+        <span class="perf"><span class="score s3"><i></i><i></i><i></i></span>Good</span>
+        <svg class="ico star on"><use href="#i-star"/></svg>
+        <svg class="ico" style="width:18px;height:18px;color:var(--brand-text);stroke-width:2.4"><use href="#i-check"/></svg>
+      </div>
+      <div class="item">
+        <span class="cc">DE</span>
+        <div class="txt"><div class="t">Germany</div><div class="d">31 servers</div></div>
+        <span class="perf"><span class="score s3"><i></i><i></i><i></i></span>Good</span>
+        <svg class="ico star"><use href="#i-star"/></svg>
+        <svg class="ico chev" style="transform:rotate(90deg)"><use href="#i-chev-r"/></svg>
+      </div>
+      <div class="item srv">
+        <div class="txt"><div class="t">berlin-gw-04</div><div class="d">Load low · uptime 99.9%</div></div>
+        <span class="perf"><span class="score s3"><i></i><i></i><i></i></span>Good</span>
+      </div>
+      <div class="item srv">
+        <div class="txt"><div class="t">frankfurt-gw-11</div><div class="d" style="color:var(--warn-text)">Same operator family as your entry</div></div>
+        <svg class="ico" style="width:16px;height:16px;color:var(--warn-text);stroke-width:2"><use href="#i-alert"/></svg>
+        <span class="perf"><span class="score s2"><i></i><i></i><i></i></span>Mid</span>
+      </div>
+      <div class="item">
+        <span class="cc">CH</span>
+        <div class="txt"><div class="t">Switzerland</div><div class="d">Your entry country</div></div>
+        <span class="perf"><span class="score s3"><i></i><i></i><i></i></span>Good</span>
+        <svg class="ico star on"><use href="#i-star"/></svg>
+        <svg class="ico chev"><use href="#i-chev-r"/></svg>
+      </div>
+      <div class="item">
+        <span class="cc">NL</span>
+        <div class="txt"><div class="t">Netherlands</div><div class="d">19 servers</div></div>
+        <span class="perf"><span class="score s2"><i></i><i></i><i></i></span>Mid</span>
+        <svg class="ico star"><use href="#i-star"/></svg>
+        <svg class="ico chev"><use href="#i-chev-r"/></svg>
+      </div>
+      <div class="item">
+        <span class="cc">SE</span>
+        <div class="txt"><div class="t">Sweden</div><div class="d">8 servers</div></div>
+        <span class="perf"><span class="score s1"><i></i><i></i><i></i></span>Low</span>
+        <svg class="ico star"><use href="#i-star"/></svg>
+        <svg class="ico chev"><use href="#i-chev-r"/></svg>
+      </div>
+    </div>
+    <div class="tip"><svg class="ico"><use href="#i-info"/></svg><div>Entry and exit in <b>different countries and operator families</b> means no single company sees both ends.</div></div>
+  </div>
+</div>
+<figcaption class="cap">05 · Server selection, per hop</figcaption>
+</figure>
+
+<!-- 6 ─ SETTINGS ─────────────────────────────────────────────────────── -->
+<figure class="shot" data-id="06-settings" style="margin:0">
+<div class="screen">
+  <div class="appbar">
+    <div class="iconbtn back"><svg><use href="#i-chev-l"/></svg></div>
+    <div class="title">Settings</div>
+  </div>
+  <div class="body" style="gap:10px">
+    <div class="privacy-check">
+      <div class="pc-top"><span class="pc-title">Privacy check</span><span class="pc-score">1 thing to review</span></div>
+      <div class="pc-grid">
+        <div><svg class="ico"><use href="#i-check"/></svg>Kill switch <span>always on</span></div>
+        <div><svg class="ico"><use href="#i-check"/></svg>Cover traffic <span>5×</span></div>
+        <div><svg class="ico"><use href="#i-check"/></svg>Logs <span>this device only</span></div>
+        <div><svg class="ico"><use href="#i-check"/></svg>Stats <span>off</span></div>
+        <div><svg class="ico"><use href="#i-check"/></svg>Payment <span>zk-nym</span></div>
+        <div class="warn"><svg class="ico"><use href="#i-alert"/></svg>1 app <span>outside tunnel</span></div>
+      </div>
+    </div>
+    <div class="label section-label">Connection</div>
+    <div class="group">
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-mix"/></svg></span><div class="txt"><div class="t">Mode</div></div><span class="v ok">Mixnet</span><svg class="ico chev"><use href="#i-chev-r"/></svg></div>
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-shield"/></svg></span><div class="txt"><div class="t">Kill switch</div><div class="d">Blocks traffic if the tunnel drops</div></div><span class="lock"><svg class="ico"><use href="#i-lock"/></svg>Always on</span></div>
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-boot"/></svg></span><div class="txt"><div class="t">Launch on device startup</div></div><span class="toggle on"></span></div>
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-mask"/></svg></span><div class="txt"><div class="t">Anti-censorship</div><div class="d">Enhanced connection: Auto</div></div><svg class="ico chev"><use href="#i-chev-r"/></svg></div>
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-sliders"/></svg></span><div class="txt"><div class="t">Mixnet tuning</div><div class="d">Cover traffic, packet mixing</div></div><span class="impact plus">+ privacy</span><svg class="ico chev"><use href="#i-chev-r"/></svg></div>
+    </div>
+    <div class="label section-label">Network</div>
+    <div class="group">
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-dns"/></svg></span><div class="txt"><div class="t">DNS</div><div class="d">Nym recommended</div></div><svg class="ico chev"><use href="#i-chev-r"/></svg></div>
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-split"/></svg></span><div class="txt"><div class="t">Split tunneling</div><div class="d">1 app excluded</div></div><span class="impact minus">− privacy</span><svg class="ico chev"><use href="#i-chev-r"/></svg></div>
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-block"/></svg></span><div class="txt"><div class="t">Block ads</div></div><span class="toggle on"></span></div>
+    </div>
+  </div>
+</div>
+<figcaption class="cap">06 · Settings with a privacy check</figcaption>
+</figure>
+
+<!-- 7 ─ MIXNET TUNING / COVER TRAFFIC ────────────────────────────────── -->
+<figure class="shot" data-id="07-cover-traffic" style="margin:0">
+<div class="screen">
+  <div class="appbar">
+    <div class="iconbtn back"><svg><use href="#i-chev-l"/></svg></div>
+    <div class="title">Mixnet tuning</div>
+  </div>
+  <div class="body" style="gap:12px">
+    <div class="card" style="padding-bottom:12px">
+      <div class="card-head"><span class="label">Preview</span><span class="meta">what a watcher sees</span></div>
+      <div class="tape-row"><span class="k">you send</span><div class="tape" data-tape="you" data-ratio="5" data-seed="21"></div></div>
+      <div class="tape-row"><span class="k">observer</span><div class="tape" data-tape="observer"></div></div>
+      <div class="legend"><span><i></i>your data</span><span><i class="c"></i>cover</span><span><i class="o"></i>looks identical</span></div>
+    </div>
+    <div>
+      <div class="row-between"><div><div class="t">Background cover traffic rate</div><div class="d">Choose how much cover you need.</div></div></div>
+      <div class="rates" style="margin-top:10px">
+        <div><b>Low</b><span>min</span></div>
+        <div class="on"><b>Balanced</b><span>5×</span></div>
+        <div><b>Medium</b><span>10×</span></div>
+        <div><b>High</b><span>20×</span></div>
+      </div>
+    </div>
+    <div class="row-between">
+      <div><div class="t">Send continuous traffic</div><div class="d">Cover is always sent so your pattern stays uniform, even when you are idle.</div></div>
+      <span class="toggle on"></span>
+    </div>
+    <div>
+      <div class="row-between"><div><div class="t">Packet mixing</div><div class="d">Timing delays that shuffle your packets with everyone else's.</div></div><span class="mono" style="font-weight:700;font-size:14px;white-space:nowrap">50 ms</span></div>
+      <div class="slider"><div class="tr"></div><div class="fill" style="width:55%"></div><div class="th" style="left:55%"></div></div>
+      <div class="slider-ends"><span>Faster</span><span>+ Anonymity</span></div>
+    </div>
+    <div class="perf-grid">
+      <div><div class="k">Packet rate</div><div class="val">up to 120/s</div></div>
+      <div><div class="k">Latency</div><div class="val">≥ 380 ms</div></div>
+    </div>
+    <div class="note" style="margin-top:-4px">Expected round-trip latency on a standard network.</div>
+    <div class="spacer"></div>
+    <div class="btn primary">Save custom settings</div>
+  </div>
+</div>
+<figcaption class="cap">07 · Cover traffic + mixing, with preview</figcaption>
+</figure>
+
+<!-- 8 ─ DATA, PRIVACY & LOGS + ACCOUNT ───────────────────────────────── -->
+<figure class="shot" data-id="08-privacy-account" style="margin:0">
+<div class="screen">
+  <div class="appbar">
+    <div class="iconbtn back"><svg><use href="#i-chev-l"/></svg></div>
+    <div class="title">Data, privacy &amp; account</div>
+  </div>
+  <div class="body" style="gap:10px">
+    <div class="label section-label" style="margin-top:0">Who can link what</div>
+    <div class="group">
+      <div class="item"><span class="lead" style="color:var(--brand-text)"><svg class="ico"><use href="#i-receipt"/></svg></span><div class="txt"><div class="t">Payment ↔ connections</div><div class="d">zk-nym credentials: unlinkable, even by Nym</div></div></div>
+      <div class="item"><span class="lead" style="color:var(--brand-text)"><svg class="ico"><use href="#i-eye-off"/></svg></span><div class="txt"><div class="t">You ↔ sites you visit</div><div class="d">Split across entry and exit; no one node has both</div></div></div>
+    </div>
+    <div class="label section-label">Sent only if you allow</div>
+    <div class="group">
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-alert"/></svg></span><div class="txt"><div class="t">Error &amp; crash reports</div><div class="d">Anonymous · applies after restart</div></div><span class="toggle"></span></div>
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-gauge"/></svg></span><div class="txt"><div class="t">Anonymous network stats</div><div class="d">No personal information</div></div><span class="toggle"></span></div>
+    </div>
+    <div class="label section-label">Logs · stored locally</div>
+    <div class="group">
+      <div class="item"><span class="lead"><svg class="ico"><use href="#i-file"/></svg></span><div class="txt"><div class="t">App + daemon logs</div><div class="d">4.6 MB · leaves only if you export</div></div></div>
+      <div class="item" style="gap:8px">
+        <div class="chip" style="flex:1;justify-content:center"><svg class="ico"><use href="#i-down"/></svg>Export ZIP</div>
+        <div class="chip" style="flex:1;justify-content:center;color:var(--err-text)"><svg class="ico"><use href="#i-trash"/></svg>Delete logs</div>
+      </div>
+    </div>
+    <div class="label section-label">Account</div>
+    <div class="card">
+      <div class="acct"><div class="av"><svg class="ico"><use href="#i-user"/></svg></div><div style="flex:1"><div class="t">Plan valid until 12 Feb 2027</div><div class="d">Auto-renews · 3 devices</div></div><svg class="ico chev" style="width:16px;height:16px;color:var(--text3);stroke-width:2"><use href="#i-chev-r"/></svg></div>
+      <div class="idline"><span>Account ID · safe to share</span><span>n1q8…4k7x</span></div>
+    </div>
+  </div>
+</div>
+<figcaption class="cap">08 · Data, privacy &amp; account</figcaption>
+</figure>
+
+<!-- 9 ─ MOBILE CONNECTED ─────────────────────────────────────────────── -->
+<figure class="shot" data-id="09-mobile-connected" style="margin:0">
+<div class="screen mobile">
+  <div class="statusbar"><span>9:41</span><span class="sb-icons"><svg viewBox="0 0 18 12"><use href="#g-signal"/></svg><svg viewBox="0 0 26 12" style="width:26px"><use href="#g-batt"/></svg></span></div>
+  <div class="appbar">
+    <div class="wordmark">Nym<span>VPN</span></div>
+    <div class="iconbtn"><svg><use href="#i-user"/></svg></div>
+    <div class="iconbtn"><svg><use href="#i-gear"/></svg></div>
+  </div>
+  <div class="body" style="padding-bottom:34px">
+    <div class="seg">
+      <div><svg class="ico"><use href="#i-bolt"/></svg>dVPN</div>
+      <div class="on"><svg class="ico"><use href="#i-mix"/></svg>Mixnet</div>
+    </div>
+    <div class="status">
+      <div class="badge ok"><span class="pulse"></span>Protected · Mixnet</div>
+      <div class="headline">You blend in.</div>
+      <div class="sub">5 hops · <b>00:42:17</b></div>
+    </div>
+    <div class="card" style="padding:6px 14px">
+      <div class="label" style="padding:8px 0 4px">Who sees what</div>
+      <div class="steps">
+        <div class="step done"><span class="dot"><svg class="ico"><use href="#i-check"/></svg></span><div><div class="s-t">Entry · Zürich, CH</div><div class="s-d">Your IP. Not where you go.</div></div></div>
+        <div class="step done"><span class="dot"><svg class="ico"><use href="#i-check"/></svg></span><div><div class="s-t">3 mix nodes</div><div class="s-d">Same-size packets, delayed and shuffled.</div></div></div>
+        <div class="step done"><span class="dot"><svg class="ico"><use href="#i-check"/></svg></span><div><div class="s-t">Exit · Reykjavík, IS</div><div class="s-d">The site. Not who you are.</div></div></div>
+        <div class="step done"><span class="dot"><svg class="ico"><use href="#i-check"/></svg></span><div><div class="s-t">Your ISP</div><div class="s-d">A steady stream to Zürich. Nothing else.</div></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="label">Cover traffic</span><span class="meta"><b>on</b> · Balanced 5×</span></div>
+      <div class="tape-row"><span class="k">you send</span><div class="tape" data-tape="you" data-ratio="5" data-seed="33"></div></div>
+      <div class="tape-row"><span class="k">observer</span><div class="tape" data-tape="observer"></div></div>
+      <div class="legend"><span><i></i>your data</span><span><i class="c"></i>cover</span><span class="mono" style="margin-left:auto">48 pkt/s</span></div>
+    </div>
+    <div class="group">
+      <div class="item loc"><span class="cc">CH</span><div class="txt"><div class="hop">Entry</div><div class="t">Switzerland <small>· Zürich</small></div></div><svg class="ico chev"><use href="#i-chev-r"/></svg></div>
+      <div class="item loc"><span class="cc">IS</span><div class="txt"><div class="hop">Exit</div><div class="t">Iceland <small>· Reykjavík</small></div></div><svg class="ico chev"><use href="#i-chev-r"/></svg></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="btn ghost"><svg class="ico"><use href="#i-power"/></svg>Disconnect</div>
+  </div>
+  <div class="homebar"></div>
+</div>
+<figcaption class="cap">09 · Mobile: who sees what</figcaption>
+</figure>
+
+<!-- 10 ─ MOBILE SERVERS (ENTRY, FAVORITES) ───────────────────────────── -->
+<figure class="shot" data-id="10-mobile-servers" style="margin:0">
+<div class="screen mobile">
+  <div class="statusbar"><span>9:41</span><span class="sb-icons"><svg viewBox="0 0 18 12"><use href="#g-signal"/></svg><svg viewBox="0 0 26 12" style="width:26px"><use href="#g-batt"/></svg></span></div>
+  <div class="appbar">
+    <div class="iconbtn back"><svg><use href="#i-chev-l"/></svg></div>
+    <div class="title">Choose location</div>
+  </div>
+  <div class="body" style="gap:10px;padding-bottom:34px">
+    <div class="seg small">
+      <div class="on"><span class="mono" style="font-size:11px">1</span>&nbsp;Entry · CH</div>
+      <div><span class="mono" style="font-size:11px">2</span>&nbsp;Exit · IS</div>
+    </div>
+    <div class="search"><svg class="ico"><use href="#i-search"/></svg><span class="ph">Search location</span><span class="count">2 favorites</span></div>
+    <div class="tabs"><div class="on">Favorites</div><div>Recent</div><div>All servers</div></div>
+    <div class="group">
+      <div class="item">
+        <span class="cc">CH</span>
+        <div class="txt"><div class="t">Switzerland</div><div class="d">12 servers · entry now</div></div>
+        <span class="perf"><span class="score s3"><i></i><i></i><i></i></span>Good</span>
+        <svg class="ico star on"><use href="#i-star"/></svg>
+      </div>
+      <div class="item srv">
+        <div class="txt"><div class="t">zurich-gw-02</div><div class="d">Load low · uptime 99.9%</div></div>
+        <span class="perf"><span class="score s3"><i></i><i></i><i></i></span>Good</span>
+        <svg class="ico" style="width:18px;height:18px;color:var(--brand-text);stroke-width:2.4"><use href="#i-check"/></svg>
+      </div>
+      <div class="item srv">
+        <div class="txt"><div class="t">geneva-gw-07</div><div class="d">Load medium · uptime 99.2%</div></div>
+        <span class="perf"><span class="score s2"><i></i><i></i><i></i></span>Mid</span>
+      </div>
+      <div class="item">
+        <span class="cc">SE</span>
+        <div class="txt"><div class="t">Sweden</div><div class="d">8 servers</div></div>
+        <span class="perf"><span class="score s1"><i></i><i></i><i></i></span>Low</span>
+        <svg class="ico star on"><use href="#i-star"/></svg>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row-between" style="margin-bottom:8px"><span class="label">Server details</span><span class="mono" style="font-size:12px;color:var(--text2)">zurich-gw-02</span></div>
+      <div class="perf-grid">
+        <div><div class="k">Server load</div><div class="val">Low</div></div>
+        <div><div class="k">Uptime · 24 h</div><div class="val">99.9%</div></div>
+        <div><div class="k">Bridge</div><div class="val">QUIC</div></div>
+        <div><div class="k">Keys</div><div class="val">Lewes PQ</div></div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="btn primary">Use as entry</div>
+  </div>
+  <div class="homebar"></div>
+</div>
+<figcaption class="cap">10 · Mobile: entry favourites + details</figcaption>
+</figure>
+
+</template>
+
+<script src="skin.js"></script>
+</body>
+</html>
